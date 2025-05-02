@@ -18,7 +18,9 @@ from django.contrib import admin
 from django.urls import path
 
 
-from django.urls import path
+from django.urls import include, path
+from graphene_django.views import GraphQLView
+from graphql_service.schema import schema
 from . import views
 
 urlpatterns = [
@@ -29,7 +31,8 @@ urlpatterns = [
     path('registro', views.registro, name='registro'),
     path('creadores/mostrar', views.mostrar_creadores, name='mostrar_creadores'),
     path('usuarios/seguirCreador',views.seguirCreador,name='seguir_creador'),##con Postman
-        path('usuarios/obtenerSeguimientos/', views.obtenerSeguimientos, name='obtener_seguimientos'),##con Postman
+    path('usuarios/obtenerSeguimientos/', views.obtenerSeguimientos, name='obtener_seguimientos'),##con Postman
+    path('microservice/graphql/', GraphQLView.as_view(graphiql=True)),
 
 
 

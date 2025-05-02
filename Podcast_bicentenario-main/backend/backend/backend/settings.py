@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'backend',
-    'corsheaders'
+    'corsheaders',
+    'graphene_django',
+    'graphql_service',
 ]
 
 MIDDLEWARE = [
@@ -141,3 +143,6 @@ TIME_ZONE = 'America/La_Paz'
 SUPABASE_URL = 'https://cbhcdgfzpwcwgqvtyanp.supabase.co'
 SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNiaGNkZ2Z6cHdjd2dxdnR5YW5wIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDU3NDkwMSwiZXhwIjoyMDYwMTUwOTAxfQ.kOaHJXZNuFLOkZVEiCkIRvEmft_R7-gVY0xzAKr-K2c'
 
+GRAPHENE = {
+    "SCHEMA": "graphql_service.schema.schema"  # Will create this next
+}
