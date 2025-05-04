@@ -17,5 +17,24 @@ class Query(graphene.ObjectType):
             data = response.json()
             return data.get('usuarios', [])
         return []
+    
 
-schema = graphene.Schema(query=Query)
+class CreateUser(graphene.Mutation):
+    class Arguments:
+        username = graphene.String(required=True)
+        email = graphene.String(required=True)
+
+    user = graphene.Field(UserType)
+
+    def mutate(self, info, username, email):
+        return CreateUser(user={
+            "idusuario": 999, 
+            "usuario": username,
+            "correo": email,
+            "rol": "Test"
+        })
+
+class Mutation(graphene.ObjectType):
+    create_user = CreateUser.Field()
+
+schema = graphene.Schema(query=Query, mutation=Mutation)

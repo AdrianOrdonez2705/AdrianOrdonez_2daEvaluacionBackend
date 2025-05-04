@@ -4,10 +4,10 @@
 En la configuración del microservicio de GraphQL, se modificaron los siguientes parámetros:
 
 ## DEPENDENCIAS
-Para que el proyecto funcione correctamente, más espcíficamente referido al consumo del
+Para que el proyecto funcione correctamente, más específicamente referido al consumo del
 endpoint con GraphQL, se debe instalar las siguientes dependencias:
 
-> pip install django django-cors-headers graphene graphene-django requests psycopg2-binary supabase
+> pip install django django-cors-headers graphene graphene-django requests psycopg2-binary supabase pytest pytest-django requests-mock
 
 ## Django Application
 Para lograr que GraphQL consuma exitosamente los datos del endpoint, se necesita crear una aplicación de
@@ -71,4 +71,14 @@ query {
   }
 }
 
-Esto finalmente devuelve los datos del endpoint */usuarios/listar*
+Esto finalmente devuelve los datos del endpoint */usuarios/listar*.
+
+## Pruebas Unitarias
+Si se desea realizar pruebas unitarias, primero debe ubicarse en el siguiente *path* del proyecto:
+> \Podcast_bicentenario-main\backend\backend>
+
+Luego, se debe hacer correr el siguiente comando en la terminal:
+> pytest graphql_service/tests/test_schema.py -v
+
+Esto devolverá los resultados de la prueba.
+
